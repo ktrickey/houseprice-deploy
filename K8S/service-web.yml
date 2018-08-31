@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: housepriceweb-service
+spec:
+  selector:
+    app: houseprice
+  ports:
+  - protocol: TCP
+    port: 80

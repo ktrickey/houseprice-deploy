@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: housepriceweb-deployment
+  labels:
+    app: houseprice
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: houseprice
+  template:
+    metadata:
+      labels:
+        app: houseprice
+    spec:
+      containers:
+      - name: housepriceweb
+        image: latest

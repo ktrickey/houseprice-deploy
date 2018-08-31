@@ -1,0 +1,32 @@
+version: '3.4'
+networks:
+  houseprice:
+    driver: "bridge"
+
+services:
+  houseprice.webapi:
+    image: localhost:5000/housepricewebapi
+    build:
+      context: .
+      dockerfile: HousePrice.WebAPi/Dockerfile
+    volumes:
+      - "C:\\HousePrice\\Docker\\Postcode:/postcodedata"
+    networks:
+      - houseprice
+  houseprice.importer:
+    image: localhost:5000/housepriceimportfilewatcher
+    build:
+      context: .
+      dockerfile: HousePrice.Api.ImportFileWatcher/Dockerfile
+    volumes:
+      - "C:\\HousePrice\\Docker\\Transactions:/transaction_data"
+      - "C:\\HousePrice\\Docker\\Postcode:/postcodedata"
+    networks:
+      - houseprice
+  houseprices.web:
+    image: localhost:5000/housepricesweb
+    build:
+      context: .
+      dockerfile: HousePrices.Web/Dockerfile
+    networks:
+      - houseprice
