@@ -1,2 +1,2 @@
 # houseprice-deploy
-Deployment files for Kubernetesxx
+Deployment files for Kubernetes
