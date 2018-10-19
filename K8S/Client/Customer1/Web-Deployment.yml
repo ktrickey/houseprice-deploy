@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: housepriceweb-deployment
+  labels:
+    app: houseprice
+    partition: customer1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: houseprice
+      partition: customer1
+  template:
+    metadata:
+      labels:
+        app: houseprice
+        partition: customer1
+    spec:
+      containers:
+      - name: housepricesweb
+        image: localhost:5000/housepricesweb:1.0.0.1

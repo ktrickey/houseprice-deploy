@@ -8,7 +8,7 @@ spec:
   - host: customer1.k8sdemo.com
     http:
       paths:
-      - path: /customer1
+      - path: /
         backend:
           serviceName: houseprice-customer1
           servicePort: 80

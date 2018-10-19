@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: housepriceapi-service-{clientName}
+  labels: 
+    partition: {clientName}
+spec:
+  selector:
+    app: houseprice
+    partition: {clientName}
+  ports:
+  - protocol: TCP
+    port: 80

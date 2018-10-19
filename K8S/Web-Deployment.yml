@@ -4,6 +4,7 @@ metadata:
   name: housepriceweb-deployment
   labels:
     app: houseprice
+    partition: {clientName}
 spec:
   replicas: 3
   selector:
@@ -13,6 +14,7 @@ spec:
     metadata:
       labels:
         app: houseprice
+        partition: {clientName}
     spec:
       containers:
       - name: housepriceweb
