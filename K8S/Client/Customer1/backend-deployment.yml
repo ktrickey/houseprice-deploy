@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: housepriceweb-deployment
+  name: housepriceapi-deployment
   namespace: customer1
   labels:
     app: houseprice

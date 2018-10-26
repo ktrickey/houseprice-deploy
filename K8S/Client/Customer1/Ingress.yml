@@ -1,0 +1,15 @@
+# Ingress to split by customer
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: houseprice
+  namespace: customer1
+spec:
+  rules:
+  - host: customer1.k8sdemo.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: houseprice-customer1
+          servicePort: 80

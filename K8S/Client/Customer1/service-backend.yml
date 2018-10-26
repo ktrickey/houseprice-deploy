@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: houseprice-customer1
+  name: houseprice-api
   namespace: customer1
   labels:
     app: houseprice
