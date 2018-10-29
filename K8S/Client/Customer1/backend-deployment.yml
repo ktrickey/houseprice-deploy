@@ -19,7 +19,7 @@ spec:
       - name: housepricewebapi
         image: localhost:5000/housepricewebapi:1.0.0.7
         volumeMounts:
-        - name: postcode-data
+        - name: postcode-storage
           mountPath: /data/postcodes
         env:
         - name: ASPNETCORE_ENVIRONMENT
@@ -29,6 +29,6 @@ spec:
         - name: "POSTCODE_DATA"
           value: "/data/postcodes/ukpostcodes.csv"
       volumes:
-      - name: postcode-data
+      - name: postcode-storage
         persistentVolumeClaim:
           claimName: postcode-data
