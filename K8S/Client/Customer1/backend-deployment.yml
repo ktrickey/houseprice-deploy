@@ -4,17 +4,31 @@ metadata:
   name: housepriceapi-deployment
   namespace: customer1
   labels:
-    app: houseprice
+    app: housepriceapi
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: houseprice
+      app: housepriceapi
   template:
     metadata:
       labels:
-        app: houseprice
+        app: housepriceapi
     spec:
       containers:
-      - name: housepricesweb
-        image: localhost:5000/housepricesweb:1.0.0.1
+      - name: housepricewebapi
+        image: localhost:5000/housepricewebapi:1.0.0.7
+        volumeMounts:
+        - name: postcode-data
+          mountPath: /data/postcodes
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: "Development"
+        - name: connectionString
+          value: "mongodb://mongodb:27017"
+        - name: "POSTCODE_DATA"
+          value: "/data/postcodes/ukpostcodes.csv"
+      volumes:
+      - name: postcode-data
+        persistentVolumeClaim:
+          claimName: postcode-data

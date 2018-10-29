@@ -4,10 +4,10 @@ metadata:
   name: houseprice-api
   namespace: customer1
   labels:
-    app: houseprice
+    app: housepriceapi
 spec:
-  selector:
-    app: houseprice
   ports:
   - protocol: TCP
     port: 80
+  selector:
+    app: housepriceapi

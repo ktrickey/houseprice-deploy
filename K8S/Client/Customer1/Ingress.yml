@@ -11,5 +11,5 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: houseprice-customer1
+          serviceName: houseprice
           servicePort: 80
