@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: housepricewebapi
-        image: localhost:5000/housepricewebapi:1.0.0.7
+        image: localhost:5000/housepricewebapi:1.0.0.8
         volumeMounts:
         - name: postcode-storage
           mountPath: /data/postcodes
