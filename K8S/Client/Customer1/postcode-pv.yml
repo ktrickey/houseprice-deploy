@@ -10,4 +10,4 @@ spec:
   capacity:
       storage: 1Gi
   hostPath:
-      path: "c:\postcodes"
+      path: "c:/postcodes"

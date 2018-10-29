@@ -18,9 +18,9 @@ spec:
       containers:
       - name: housepricewebapi
         image: localhost:5000/housepricewebapi:1.0.0.6
-        # volumeMounts:
-        # - name: postcode-storage
-        #   mountPath: /data/postcodes
+        volumeMounts:
+        - name: postcode-storage
+          mountPath: /data/postcodes
         env:
         - name: ASPNETCORE_ENVIRONMENT
           value: "Development"
