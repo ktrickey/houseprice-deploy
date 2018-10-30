@@ -1,13 +1,12 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: postcode-claim
-  namespace: customer1
+  name: data-claim
+  namespace: customer2
 spec:
-  volumeMode: Filesystem
   storageClassName: ""
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 1Gi
+      storage: 5Gi

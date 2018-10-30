@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: houseprice-api
+  namespace: customer2
+  labels:
+    app: housepriceapi
+spec:
+  ports:
+  - protocol: TCP
+    port: 80
+  selector:
+    app: housepriceapi

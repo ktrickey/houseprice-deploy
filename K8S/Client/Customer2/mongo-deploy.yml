@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: mongodb
-  namespace: customer1
+  namespace: customer2
 spec:
   replicas: 1
   template:
