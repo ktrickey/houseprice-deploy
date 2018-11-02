@@ -15,9 +15,16 @@ spec:
       labels:
         app: houseprice
     spec:
+      volumes:
+      - name: branding-storage
+        persistentVolumeClaim:
+          claimName: webbranding-claim
       containers:
       - name: housepricesweb
-        image: localhost:5000/housepricesweb:1.0.0.6
+        image: localhost:5000/housepricesweb:1.0.0.10
+        volumeMounts:
+        - name: branding-storage
+          mountPath: /app/wwwroot/branding
         env:
         - name: ApiRoot
           value: "http://houseprice-api"

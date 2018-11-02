@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: houseprice-mongo
+  namespace: customer1
+  labels:
+    app: housepricemongo
+spec:
+  ports:
+  - protocol: TCP
+    port: 27017
+  selector:
+    app: housepricemongo

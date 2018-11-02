@@ -1,8 +1,8 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: postcode-claim
-  namespace: customer1
+  name: webbranding-claim
+  namespace: customer2
 spec:
   volumeMode: Filesystem
   storageClassName: ""

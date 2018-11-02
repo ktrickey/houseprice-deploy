@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postcodelookup-deployment
+  labels:
+    app: houseprice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: houseprice
+  template:
+    metadata:
+      labels:
+        app: houseprice
+    spec:
+      volumes:
+      - name: postcode-storage
+        persistentVolumeClaim:
+          claimName: postcode-claim
+      containers:
+      - name: postcodelookup
+        image: localhost:5000/housepricepostcodes:1.0.0.3
+        volumeMounts:
+        - name: postcode-storage
+          mountPath: /data/postcodes
+        readinessProbe:
+          httpGet: # make an HTTP request
+            port: 80 # port to use
+            path: api/healthz # endpoint to hit
+            scheme: HTTP # or HTTPS
+          initialDelaySeconds: 20 # how long to wait before checking
+          periodSeconds: 3 # how long to wait between checks
+          successThreshold: 1 # how many successes to hit before accepting
+          failureThreshold: 3 # how many failures to accept before failing
+          timeoutSeconds: 20 # how long to wait for a response
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: "Development"
+        - name: "POSTCODE_DATA"
+          value: "/data/postcodes/ukpostcodes.csv"

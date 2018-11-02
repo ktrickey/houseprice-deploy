@@ -15,20 +15,14 @@ spec:
       labels:
         app: housepriceapi
     spec:
-      volumes:
-      - name: postcode-storage
-        persistentVolumeClaim:
-          claimName: postcode-claim
       containers:
       - name: housepricewebapi
-        image: localhost:5000/housepricewebapi:1.0.0.10
-        volumeMounts:
-        - name: postcode-storage
-          mountPath: /data/postcodes
+        image: localhost:5000/housepricewebapi:1.0.0.31
         env:
         - name: ASPNETCORE_ENVIRONMENT
           value: "Development"
         - name: connectionString
-          value: "mongodb://mongodb:27017"
-        - name: "POSTCODE_DATA"
-          value: "/data/postcodes/ukpostcodes.csv"
+          value: "houseprice-mongo:27017"
+        - name: postcodelookupservicename
+          value: "http://postcodelookup.default.svc.cluster.local"
+

@@ -6,7 +6,7 @@ metadata:
   namespace: customer2
 spec:
   rules:
-  - host: customer1.k8sdemo.com
+  - host: customer2.k8sdemo.com
     http:
       paths:
       - path: /

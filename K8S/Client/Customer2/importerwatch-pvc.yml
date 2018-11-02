@@ -1,12 +1,13 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: customer2-data-claim
+  name: importerwatch-claim
   namespace: customer2
 spec:
+  volumeMode: Filesystem
   storageClassName: ""
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 5Gi
+      storage: 1Gi
