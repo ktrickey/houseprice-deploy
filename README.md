@@ -3,19 +3,24 @@ Deployment files for Kubernetes
 
 These are the deployment files for the Kubernetes demo. Full installation instructions are as follows
 
-## Prerequisites
+## Docker/Kubernetes Dev Prerequisites
 1. Ensure Hyper-V is enabled on Windows
-2. Ensure .Net Core v2.1 support is enabled in Visual Studio 2017 (may need to run the installer.)
+2. Ensure .Net Core v2.1 support is enabled in Visual Studio 2017 (may need to re-run the installer.)
 3. Install Docker for Windows Desktop from (latest stable should be fine) https://hub.docker.com/editions/community/docker-ce-desktop-windows 
 4. Open the Docker settings and ensure you are running Linux containers and Kubernetes is enabled and set as the orchestrator.
 5. You'll need a Git client installed, even if it's just the standard CLI / simple GUI at https://gitforwindows.org/ I've used Git Extensions for several years http://gitextensions.github.io/
 6. Install a docker registry locally
-```
-docker run -d -p 5000:5000 --restart always --name registry registry:2
-```
+   ```
+   docker run -d -p 5000:5000 --restart always --name registry registry:2
+   ```
 ## Setup instructions
+1. Add the following entries to your hosts file
+   ```
+   127.0.0.1 customer1.k8sdemo.com
+   127.0.0.1 customer2.k8sdemo.com
+   ```
 1. Create a directory structure c:\k8sdemo\repos
-2. In a command line at c:\k82demo\repos, clone all the relevant Github repositories
+2. In a command line at c:\k8sdemo\repos, clone all the relevant Github repositories
 
    ```
    git clone https://github.com/ktrickey/houseprice-api.git
@@ -90,3 +95,8 @@ docker run -d -p 5000:5000 --restart always --name registry registry:2
    http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/deployment?namespace=default
    ```
    You should now be able to navigate around the dashboard and find the services, pods etc that have been set up. You'll need to select the customer1 or customer2 namespaces to see the customer specific resources.
+8. Copy c:\k8sdemo\repos\houseprice-data\2018-cust1.csv to c:\k8sdemo\data\customer1\importer\drop
+9. Copy c:\k8sdemo\repos\houseprice-data\2018-cust1.csv to c:\k8sdemo\data\customer2\importer\drop
+10. The files should move to the processing directory and then to the success directory
+11. Navigate to http://customer1.k8sdemo.com:8080 and try searching
+11. Navigate to http://customer2.k8sdemo.com:8080 and try searching (background colour should be different to customer1)
