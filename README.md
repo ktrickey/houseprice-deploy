@@ -54,18 +54,18 @@ These are the deployment files for the Kubernetes demo. Full installation instru
    ```
 3. Add the following directories
    ```
-   c:\k8sdemo\data
-   c:\k8sdemo\data\customer1
-   c:\k8sdemo\data\customer1\branding
-   c:\k8sdemo\data\customer1\importer
-   c:\k8sdemo\data\customer1\importer\drop
-   c:\k8sdemo\data\customer1\importer\processing
-   c:\k8sdemo\data\customer1\importer\success
-   c:\k8sdemo\data\customer2\branding
-   c:\k8sdemo\data\customer2\importer
-   c:\k8sdemo\data\customer2\importer\drop
-   c:\k8sdemo\data\customer2\importer\processing
-   c:\k8sdemo\data\customer2\importer\success
+   md c:\k8sdemo\data
+   md c:\k8sdemo\data\customer1
+   md c:\k8sdemo\data\customer1\branding
+   md c:\k8sdemo\data\customer1\importer
+   md c:\k8sdemo\data\customer1\importer\drop
+   md c:\k8sdemo\data\customer1\importer\processing
+   md c:\k8sdemo\data\customer1\importer\success
+   md c:\k8sdemo\data\customer2\branding
+   md c:\k8sdemo\data\customer2\importer
+   md c:\k8sdemo\data\customer2\importer\drop
+   md c:\k8sdemo\data\customer2\importer\processing
+   md c:\k8sdemo\data\customer2\importer\success
    ```
 
 4. Add a site.css file to the two branding directories in step 8
