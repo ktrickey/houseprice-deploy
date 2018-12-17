@@ -27,7 +27,7 @@ spec:
           claimName: importerprocessing-claim
       containers:
       - name: importer
-        image: localhost:5000/housepriceimportfilewatcher:1.0.0.24
+        image: localhost:5000/housepriceimporter:1.0.0.0
         volumeMounts:
         - name: transactiondroplocation
           mountPath: /transactions/drop

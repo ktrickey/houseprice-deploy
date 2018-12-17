@@ -9,4 +9,4 @@ spec:
   capacity:
       storage: 1Gi
   hostPath:
-      path: "/host_mnt/c/houseprice/data/customer1/branding"
+      path: "/host_mnt/c/k8sdemo/data/customer1/branding"

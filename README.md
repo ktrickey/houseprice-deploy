@@ -36,25 +36,29 @@ These are the deployment files for the Kubernetes demo. Full installation instru
    git clone https://github.com/ktrickey/houseprice-data.git
 
    ```
-4. We now need to build each of the projects that were cloned above (there's nothing to build the deploy or data repositories).
 
-5. For each project we now need to tag the image and push it to our local repository.
+5. For each project we now need to build and push image and push it to our local repository.
    ```
-   docker tag xxxxx localhost:5000\xxxxx:v1.0.0.0
-   docker push localhost:5000\xxxxx:v1.0.0.0
+   cd c:\k8sdemo\repos\houseprice-api\src\houseprice.webapi
+   docker build -t "localhost:5000/housepricewebapi:1.0.0.0" -f "c:\k8sdemo\repos\houseprice-api\src\houseprice.webapi\dockerfile" ".."
+   docker push localhost:5000/housepricewebapi:1.0.0.0
    
-   docker tag xxxxx localhost:5000\xxxxx:v1.0.0.0
-   docker push localhost:5000\xxxxx:v1.0.0.0
+   cd C:\k8sdemo\repos\houseprice-web\src\HousePrices.Web
+   docker build -t "localhost:5000/housepriceweb:1.0.0.0" -f "C:\k8sdemo\repos\houseprice-web\src\HousePrices.Web\Dockerfile" ".."
+   docker push localhost:5000/housepriceweb:1.0.0.0
    
-   docker tag xxxxx localhost:5000\xxxxx:v1.0.0.0
-   docker push localhost:5000\xxxxx:v1.0.0.0
+   cd C:\k8sdemo\repos\houseprice-postcodelookup\HousePrice.Postcodes
+     docker build -t "localhost:5000/postcodelookup:1.0.0.0" -f "C:\k8sdemo\repos\houseprice-postcodelookup\HousePrice.Postcodes\Dockerfile" ".."
+   docker push localhost:5000/postcodelookup:1.0.0.0
    
-   docker tag xxxxx localhost:5000\xxxxx:v1.0.0.0
-   docker push localhost:5000\xxxxx:v1.0.0.0
+   cd C:\k8sdemo\repos\houseprice-import\src\HousePrice.Api.ImportFileWatcher
+       docker build -t "localhost:5000/housepriceimporter:1.0.0.0" -f "C:\k8sdemo\repos\houseprice-import\src\HousePrice.Api.ImportFileWatcher\Dockerfile" ".."
+   docker push localhost:5000/housepriceimporter:1.0.0.0
    ```
 3. Add the following directories
    ```
    md c:\k8sdemo\data
+   md c:\k8sdemo\data\postcodes
    md c:\k8sdemo\data\customer1
    md c:\k8sdemo\data\customer1\branding
    md c:\k8sdemo\data\customer1\importer
@@ -92,7 +96,7 @@ These are the deployment files for the Kubernetes demo. Full installation instru
    ```
 7. In a browser, navigate to 
    ```
-   http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/deployment?namespace=default
+   http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/overview?namespace=default
    ```
    You should now be able to navigate around the dashboard and find the services, pods etc that have been set up. You'll need to select the customer1 or customer2 namespaces to see the customer specific resources.
 8. Copy c:\k8sdemo\repos\houseprice-data\2018-cust1.csv to c:\k8sdemo\data\customer1\importer\drop

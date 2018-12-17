@@ -20,7 +20,7 @@ spec:
           claimName: postcode-claim
       containers:
       - name: postcodelookup
-        image: localhost:5000/housepricepostcodes:1.0.0.3
+        image: localhost:5000/postcodelookup:1.0.0.0
         volumeMounts:
         - name: postcode-storage
           mountPath: /data/postcodes
