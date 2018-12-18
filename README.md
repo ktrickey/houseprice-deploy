@@ -97,6 +97,10 @@ These are the deployment files for the Kubernetes demo. Full installation instru
 	background-color: #f00 !important
    }
    ```
+5. Copy the postcode data so it is accessible to the cluster
+   ```
+      copy c:\k8sdemo\houseprice-data\data\ukpostcodes.csv c:\k8sdemo\data\postcodes
+   ```
 5. In an admin command line at c:\k8sdemo\repos\houseprice-deploy run
    ```
    InitialDeploy.cmd
