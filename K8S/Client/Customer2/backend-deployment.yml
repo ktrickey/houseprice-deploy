@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: housepriceapi-deployment
+  namespace: customer2
+  labels:
+    app: housepriceapi
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: housepriceapi
+  template:
+    metadata:
+      labels:
+        app: housepriceapi
+    spec:
+      containers:
+      - name: housepricewebapi
+        image: localhost:5000/housepricewebapi:1.0.0.34
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: "Development"
+        - name: connectionString
+          value: "houseprice-mongo:27017"
+        - name: postcodelookupservicename
+          value: "http://postcodelookup.default.svc.cluster.local"
+

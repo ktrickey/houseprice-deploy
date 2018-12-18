@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: housepriceweb-deployment
-  namespace: customer1
+  namespace: customer2
   labels:
     app: houseprice
 spec:

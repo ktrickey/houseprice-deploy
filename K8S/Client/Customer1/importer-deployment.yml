@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: importer-deployment
+  namespace: customer1
+  labels:
+    app: housepriceimporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: housepriceimporter
+  template:
+    metadata:
+      labels:
+        app: housepriceimporter
+    spec:
+      volumes:
+      - name: transactiondroplocation
+        persistentVolumeClaim:
+          claimName: importerwatch-claim
+      - name: transactionsuccesslocation
+        persistentVolumeClaim:
+          claimName: importersuccess-claim
+      - name: transactionprocessinglocation
+        persistentVolumeClaim:
+          claimName: importerprocessing-claim
+      containers:
+      - name: importer
+        image: localhost:5000/housepriceimportfilewatcher:1.0.0.24
+        volumeMounts:
+        - name: transactiondroplocation
+          mountPath: /transactions/drop
+        - name: transactionsuccesslocation
+          mountPath: /transactions/success
+        - name: transactionprocessinglocation
+          mountPath: /transactions/processing
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: "Development"
+        - name: "watchDirectory"
+          value: "/transactions/drop"
+        - name: "successDirectory"
+          value: "/transactions/success"
+        - name: "processingDirectory"
+          value: "/transactions/processing"
+        - name: "endPoint"
+          value: "http://houseprice-api"
+

@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: houseprice
-  namespace: customer1
+  namespace: customer2
 spec:
   ports:
   - protocol: TCP

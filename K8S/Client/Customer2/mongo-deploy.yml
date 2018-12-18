@@ -1,0 +1,36 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mongodb
+  namespace: customer2
+  labels:
+    app: housepricemongo
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: housepricemongo
+  template:
+    metadata:
+      labels:
+        app: housepricemongo
+    spec:
+      restartPolicy: Always
+      volumes:
+        - name: data-storage
+          persistentVolumeClaim:
+            claimName: customer2-data-claim
+      containers:
+      - name: mongodb-container
+        image: "mongo:3.4-jessie"
+        volumeMounts:
+        - name: data-storage
+          mountPath: /data/db
+        resources:
+          requests:
+            cpu: 20m
+          limits:
+            cpu: 40m
+            memory: 1Gi

@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: postcodelookup
+spec:
+  ports:
+  - protocol: TCP
+    port: 80
+  selector:
+    app: houseprice
