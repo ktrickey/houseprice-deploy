@@ -6,24 +6,25 @@ These are the deployment files for the Kubernetes demo. Full installation instru
 ## Docker/Kubernetes Dev Prerequisites
 1. Ensure Hyper-V is enabled on Windows
 2. Ensure .Net Core v2.1 support is enabled in Visual Studio 2017 (may need to re-run the installer.)
-3. Install Docker for Windows Desktop from (latest stable should be fine) https://hub.docker.com/editions/community/docker-ce-desktop-windows 
-4. Open the Docker settings and ensure you are running Linux containers and Kubernetes is enabled and set as the orchestrator.
+3. Install Docker for Windows Desktop from https://hub.docker.com/editions/community/docker-ce-desktop-windows 
+
 5. You'll need a Git client installed, even if it's just the standard CLI / simple GUI at https://gitforwindows.org/ I've used Git Extensions for several years http://gitextensions.github.io/
 6. Install a docker registry locally
    ```
    docker run -d -p 5000:5000 --restart always --name registry registry:2
    ```
 ## Setup instructions
-1. Configure Docker by right clicking the Docker icon in the system tray and selecting settings and making the following changes
+1. Right click the Docker icon in the system tray and select switch to Linux containers if it's available (if you see switch to Windows containers, you're fine)
+
+2. Configure Docker by right clicking the Docker icon in the system tray and selecting settings and making the following changes
 ```
    Shared Drives : Select c and apply, enter your domain password if prompted
    Advanced: Set CPUs to 4 and Memory to 4096 
       (these are max values, they don't grab those resources. Two copies of Mongo in the cluster takes a fair bit of resource)
    Daemon: Add localhost:5000 to the insecure registries list
-   Kubernetes: Check the Enable Kubernetes option and Apply
-
+   Kubernetes: Check the Enable Kubernetes option
 ```
-2. Add the following entries to your hosts file
+3. Add the following entries to your hosts file
    ```
    127.0.0.1 customer1.k8sdemo.com
    127.0.0.1 customer2.k8sdemo.com
