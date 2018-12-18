@@ -16,19 +16,19 @@ These are the deployment files for the Kubernetes demo. Full installation instru
 ## Setup instructions
 1. Configure Docker by right clicking the Docker icon in the system tray and selecting settings and making the following changes
 ```
-   Shared Drives : Select c and apply, enter you domain password if prompted
+   Shared Drives : Select c and apply, enter your domain password if prompted
    Advanced: Set CPUs to 4 and Memory to 4096 
       (these are max values, they don't grab those resources. Two copies of Mongo in the cluster takes a fair bit of resource)
    Daemon: Add localhost:5000 to the insecure registries list
    Kubernetes: Check the Enable Kubernetes option and Apply
 
 ```
-1. Add the following entries to your hosts file
+2. Add the following entries to your hosts file
    ```
    127.0.0.1 customer1.k8sdemo.com
    127.0.0.1 customer2.k8sdemo.com
    ```
-1. Create a directory structure c:\k8sdemo\repos
+2. Create a directory structure c:\k8sdemo\repos
 2. In a command line at c:\k8sdemo\repos, clone all the relevant Github repositories
 
    ```
