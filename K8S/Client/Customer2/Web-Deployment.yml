@@ -21,7 +21,7 @@ spec:
           claimName: webbranding-claim
       containers:
       - name: housepricesweb
-        image: localhost:5000/housepricesweb:1.0.0.10
+        image: localhost:5000/housepriceweb:1.0.0.0
         volumeMounts:
         - name: branding-storage
           mountPath: /app/wwwroot/branding

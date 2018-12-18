@@ -9,4 +9,4 @@ spec:
   capacity:
       storage: 1Gi
   hostPath:
-      path: "/host_mnt/c/postcodes"
+      path: "/host_mnt/c/k8sdemo/data/postcodes"

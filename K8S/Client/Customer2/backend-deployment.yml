@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: housepricewebapi
-        image: localhost:5000/housepricewebapi:1.0.0.34
+        image: localhost:5000/housepricewebapi:1.0.0.0
         env:
         - name: ASPNETCORE_ENVIRONMENT
           value: "Development"

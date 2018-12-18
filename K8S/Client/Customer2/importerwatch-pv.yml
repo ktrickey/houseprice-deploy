@@ -9,4 +9,4 @@ spec:
   capacity:
       storage: 1Gi
   hostPath:
-      path: "/host_mnt/c/houseprice/data/customer2/importer/drop"
+      path: "/host_mnt/c/k8sdemo/data/customer2/importer/drop"
