@@ -101,7 +101,7 @@ These are the deployment files for the Kubernetes demo. Full installation instru
    ```
       copy c:\k8sdemo\repos\houseprice-data\data\ukpostcodes.csv c:\k8sdemo\data\postcodes
    ```
-5. In an admin command line at c:\k8sdemo\repos\houseprice-deploy
+5. In an admin command line at c:\k8sdemo\repos\houseprice-deploy\k8s
    ```
    InitialDeploy.cmd
    ```
@@ -114,8 +114,8 @@ These are the deployment files for the Kubernetes demo. Full installation instru
    http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/overview?namespace=default
    ```
    You should now be able to navigate around the dashboard and find the services, pods etc that have been set up. You'll need to select the customer1 or customer2 namespaces to see the customer specific resources.
-8. Copy c:\k8sdemo\repos\houseprice-data\2018-cust1.csv to c:\k8sdemo\data\customer1\importer\drop
-9. Copy c:\k8sdemo\repos\houseprice-data\2017 - cust2.csv to c:\k8sdemo\data\customer2\importer\drop
+8. Copy c:\k8sdemo\repos\houseprice-data\data\2018-cust1.csv to c:\k8sdemo\data\customer1\importer\drop
+9. Copy c:\k8sdemo\repos\houseprice-data\data\2017 - cust2.csv to c:\k8sdemo\data\customer2\importer\drop
 10. The files should move to the processing directory and then to the success directory
 11. Navigate to http://customer1.k8sdemo.com:8080 and try searching
 11. Navigate to http://customer2.k8sdemo.com:8080 and try searching (background colour should be different to customer1)
