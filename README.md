@@ -94,7 +94,7 @@ These are the deployment files for the Kubernetes demo. Full installation instru
    Customer 2 site.css
    ```
    body {
-	background-color: #f00 !important
+	background-color: #afa !important
    }
    ```
 5. Copy the postcode data so it is accessible to the cluster
