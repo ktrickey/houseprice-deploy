@@ -4,7 +4,7 @@ Deployment files for Kubernetes
 These are the deployment files for the Kubernetes demo. Full installation instructions are as follows
 
 ## Docker/Kubernetes Dev Prerequisites
-1. Ensure Hyper-V is enabled on Windows
+1. Ensure Hyper-V is enabled on Windows 10 (Docker for Windows Desktop only supports Windows 10)
 2. Ensure .Net Core v2.1 support is enabled in Visual Studio 2017 (may need to re-run the installer.)
 3. Install Docker for Windows Desktop from https://hub.docker.com/editions/community/docker-ce-desktop-windows 
 
