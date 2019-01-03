@@ -117,5 +117,5 @@ These are the deployment files for the Kubernetes demo. Full installation instru
 8. Copy c:\k8sdemo\repos\houseprice-data\data\2018-cust1.csv to c:\k8sdemo\data\customer1\importer\drop
 9. Copy c:\k8sdemo\repos\houseprice-data\data\2017 - cust2.csv to c:\k8sdemo\data\customer2\importer\drop
 10. The files should move to the processing directory and then to the success directory
-11. Navigate to http://customer1.k8sdemo.com:8080 and try searching
-11. Navigate to http://customer2.k8sdemo.com:8080 and try searching (background colour should be different to customer1)
+11. Navigate to http://customer1.k8sdemo.com:8080 and try searching for SG1 6BJ
+11. Navigate to http://customer2.k8sdemo.com:8080 and try searching for DE73 6UX (background colour should be different to customer1)
