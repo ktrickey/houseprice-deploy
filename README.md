@@ -5,7 +5,7 @@ These are the deployment files for the Kubernetes demo. Full installation instru
 
 ## Docker/Kubernetes Dev Prerequisites
 1. Ensure Hyper-V is enabled on Windows 10 (Docker for Windows Desktop only supports Windows 10)
-2. Ensure .Net Core v2.1 support is enabled in Visual Studio 2017 (may need to re-run the installer.)
+2. Ensure .Net Core v2.1 support is enabled in Visual Studio 2017 (may need to re-run the installer.) This is only required if you want to look at the code in VS, the builds below are done in Docker containers with the SDKs pre-installed.
 3. Install Docker for Windows Desktop from https://hub.docker.com/editions/community/docker-ce-desktop-windows 
 
 5. You'll need a Git client installed, even if it's just the standard CLI / simple GUI at https://gitforwindows.org/ I've used Git Extensions for several years http://gitextensions.github.io/
