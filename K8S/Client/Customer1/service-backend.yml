@@ -6,8 +6,10 @@ metadata:
   labels:
     app: housepriceapi
 spec:
+  type: NodePort
   ports:
   - protocol: TCP
     port: 80
+    nodePort: 32000
   selector:
     app: housepriceapi
